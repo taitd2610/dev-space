@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from "react-router-dom";
+
+import "./App.css";
+
+import Sidebar from "./components/Sidebar";
+import Dev from "./components/Dev";
+import Hashnode from "./components/Hashnode";
+import Github from "./components/Github";
+import ProductHunt from "./components/ProductHunt";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="text-center mx-auto">
+      <BrowserRouter>
+        <div className="flex md:flex-row flex-col">
+          {/* Sidebar */}
+          <div className=" bg-indigo-500 md:w-1/3 md:h-screen h-full py-20">
+            <div className="m-8">
+              <h1 className="text-4xl font-bold text-white">Devspace</h1>
+              <span className="text-white italic font-semibold">
+                Get top posts from the best developer platforms.
+              </span>
+            </div>
+
+            <Sidebar />
+
+            <div className="mt-12 bg-gray-900 shadow text-white p-2 mx-auto w-36 rounded">
+              <a
+                href="https://github.com/rutikwankhade/devspace"
+                target="_blank"
+                rel="noreferrer"
+                className="flex"
+              >
+                <span className="text-sm font-semibold">⭐ Star on Github</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Route */}
+          <div className="md:w-2/3 bg-gray-100  overflow-y-scroll max-h-screen">
+            <Route exact path="/" component={Dev} />
+            <Route exact path="/hashnode" component={Hashnode} />
+            <Route exact path="/github" component={Github} />
+            <Route exact path="/producthunt" component={ProductHunt} />
+          </div>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
