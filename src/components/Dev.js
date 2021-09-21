@@ -13,19 +13,18 @@ const Dev = () => {
   const [loading, setLoading] = useState(true);
   const [top, setTop] = useState(1);
 
-  const getDevFeed = async () => {
-    const response = await fetch(`https://dev.to/api/articles?top=${top}`, {
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const apiResponse = await response.json();
-    // console.log(apiResponse);
-    setLoading(false);
-    setDevPosts(apiResponse);
-  };
-
   useEffect(() => {
+    const getDevFeed = async () => {
+      const response = await fetch(`https://dev.to/api/articles?top=${top}`, {
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const apiResponse = await response.json();
+      // console.log(apiResponse);
+      setLoading(false);
+      setDevPosts(apiResponse);
+    };
     getDevFeed();
   }, [top]);
 
