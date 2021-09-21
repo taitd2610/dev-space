@@ -11,9 +11,10 @@ import devIcon from "../assets/images/dev.webp";
 const Dev = () => {
   const [devPosts, setDevPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [top, setTop] = useState(1);
 
   const getDevFeed = async () => {
-    const response = await fetch("https://dev.to/api/articles?top=1", {
+    const response = await fetch(`https://dev.to/api/articles?top=${top}`, {
       headers: {
         "Content-type": "application/json",
       },
@@ -26,11 +27,16 @@ const Dev = () => {
 
   useEffect(() => {
     getDevFeed();
-  }, []);
+  }, [top]);
 
   return (
     <div>
-      <Header icon={devIcon} title="Dev" borderColor="border-gray-500" />
+      <Header
+        icon={devIcon}
+        title="Dev"
+        borderColor="border-gray-500"
+        setTop={(top) => setTop(top)}
+      />
       {loading === true ? (
         <div className="flex justify-center my-48">
           <ThreeDots fill="#6366F1" />
