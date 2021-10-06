@@ -10,31 +10,37 @@ const Header = ({ icon, title, borderColor, setTop }) => {
         <h1 className="text-center text-2xl">{title}</h1>
       </div>
 
-      <div className="flex">
-        <p
-          className="mr-2 ml-auto  text-md py-1 bg-gray-700 text-white rounded px-2 cursor-pointer hover:bg-gray-800"
+      {/* Button Group */}
+      <div className="inline-flex shadow-sm rounded-md" role="group">
+        <button
+          type="button"
+          class="rounded-l-lg border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
           onClick={() => {
             if (setTop !== undefined) setTop(1);
           }}
         >
           Today
-        </p>
-        <p
-          className="mr-2 ml-auto  text-md py-1 bg-gray-700 text-white rounded px-2 cursor-pointer hover:bg-gray-800"
+        </button>
+
+        <button
+          type="button"
+          class="border-t border-b border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
           onClick={() => {
             if (setTop !== undefined) setTop(3);
           }}
         >
           3 Days
-        </p>
-        <p
-          className="mr-2 ml-auto  text-md py-1 bg-gray-700 text-white rounded px-2 cursor-pointer hover:bg-gray-800"
+        </button>
+
+        <button
+          type="button"
+          class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
           onClick={() => {
             if (setTop !== undefined) setTop(7);
           }}
         >
           Week
-        </p>
+        </button>
       </div>
     </div>
   );

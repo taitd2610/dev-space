@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <div className="flex md:flex-row flex-col">
           {/* Sidebar */}
-          <div className=" bg-indigo-500 md:w-1/3 md:h-screen h-full py-20">
+          <div className="bg-darkblue md:w-1/3 md:h-screen h-full py-20">
             <div className="m-8">
               <h1 className="text-4xl font-bold text-white">Devspace</h1>
               <span className="text-white italic font-semibold">

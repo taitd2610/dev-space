@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Fade from "react-reveal/Fade";
 import { ThreeDots } from "svg-loaders-react";
-import { ThumbUpIcon, ChatIcon } from "@heroicons/react/solid";
+import { ThumbUpIcon, ChatIcon, BookmarkIcon } from "@heroicons/react/solid";
 
 import Header from "./Header";
 
@@ -42,26 +42,36 @@ const Dev = () => {
         </div>
       ) : (
         //  Cards
-        <div className="flex flex-row flex-wrap justify-center p-2">
-          {devPosts.map((post) => {
-            return (
-              <Fade bottom key={post.id}>
-                <a href={post.url} target="_blank" rel="noreferrer">
-                  <div className="w-72 h-64 py-auto shadow flex flex-col bg-white rounded-md p-4 text-left m-2">
-                    <img
-                      src={
-                        post.social_image === ""
-                          ? "https://picsum.photos/seed/picsum/200/150"
-                          : post.social_image
-                      }
-                      alt="cover-img"
-                      className="rounded"
-                    />
-                    <h3 className="text-xl mt-2">{post.title}</h3>
-                    <div className="flex justify-between">
+        <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-5 p-4">
+          {devPosts.map((post) => (
+            <Fade bottom key={post.id}>
+              <a href={post.url} target="_blank" rel="noreferrer">
+                <div class="bg-white shadow-md border border-gray-200 rounded-lg">
+                  <img
+                    class="rounded-t-lg w-full h-32 sm:h-48 object-cover"
+                    src={
+                      post.social_image === ""
+                        ? "https://picsum.photos/seed/picsum/200/150"
+                        : post.social_image
+                    }
+                    alt="cover-img"
+                  />
+
+                  <div className="text-left px-4">
+                    <div className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+                      <h3 className="text-xl mt-2 font-bold tracking-tight mb-2">
+                        {post.title}
+                      </h3>
+                    </div>
+
+                    <div className="flex justify-between mb-4">
                       <div className="flex">
                         <ThumbUpIcon className="h-6 w-6 text-blue-500"></ThumbUpIcon>
                         <p>{post.public_reactions_count}</p>
+                      </div>
+
+                      <div className="flex">
+                        <BookmarkIcon className="h-6 w-6 text-blue-500 hover:text-yellow-500"></BookmarkIcon>
                       </div>
 
                       <div className="flex">
@@ -70,10 +80,10 @@ const Dev = () => {
                       </div>
                     </div>
                   </div>
-                </a>
-              </Fade>
-            );
-          })}
+                </div>
+              </a>
+            </Fade>
+          ))}
         </div>
       )}
     </div>
