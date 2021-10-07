@@ -7,6 +7,7 @@ import Dev from "./components/Dev";
 import Hashnode from "./components/Hashnode";
 import Github from "./components/Github";
 import ProductHunt from "./components/ProductHunt";
+import Hackernews from "./components/Hackernews";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="/hashnode" component={Hashnode} />
             <Route exact path="/github" component={Github} />
             <Route exact path="/producthunt" component={ProductHunt} />
+            <Route exact path="/hackernews" component={Hackernews} />
           </div>
         </div>
       </BrowserRouter>
